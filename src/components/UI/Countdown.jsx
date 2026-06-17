@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import updateTime from "../home/NewItems"
+import updateTime from "../home/CountdownTimer.js"
 
 function Countdown({ expiryDate }) {
   const [time, setTime] = useState(updateTime(expiryDate));

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import AuthorImage from "../../images/author_thumbnail.jpg";
 import axios from "axios";
 import Skeleton from "../UI/Skeleton";
 
@@ -19,7 +18,6 @@ const TopSellers = () => {
     async function load() {
       const results = await getTopSellers();
       setSellersList(results);
-      console.log(results);
       setLoading(false);
     }
     load();
