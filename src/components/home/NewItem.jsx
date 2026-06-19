@@ -2,7 +2,7 @@ import React from 'react'
 import Countdown from '../UI/Countdown'
 import { Link } from 'react-router-dom'
 
-function NewItem({ item, style }) {
+function NewItem({ item, author, style }) {
   return (
     <div
           key={item.id}
@@ -12,11 +12,11 @@ function NewItem({ item, style }) {
           <div className="nft__item">
             <div className="author_list_pp">
               <Link
-                to={`/author/${item.authorId}`}
+                to={`/author/${author.authorId}`}
                 data-bs-toggle="tooltip"
                 data-bs-placement="top"
               >
-                <img className="lazy" src={item.authorImage} alt="" />
+                <img className="lazy" src={author.authorImage} alt="" />
                 <i className="fa fa-check"></i>
               </Link>
             </div>
@@ -44,6 +44,7 @@ function NewItem({ item, style }) {
                   src={item.nftImage}
                   className="lazy nft__item_preview"
                   alt=""
+                  style={{ maxHeight: "345px"}}
                 />
               </Link>
             </div>

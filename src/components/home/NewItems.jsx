@@ -97,12 +97,14 @@ const NewItems = () => {
                 : items.map((item) => (
                     <NewItem 
                       item={item}
+                      author={item}
                       style={{
                         display: "block",
                         width: "100%",
                         maxWidth: "100%",
                         padding: "0"
-                      }}  
+                      }}
+                      key={item.id}  
                     />
                   ))}
             </ReactOwlCarousel>

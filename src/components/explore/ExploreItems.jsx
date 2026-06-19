@@ -83,6 +83,7 @@ const ExploreItems = () => {
         : items.slice(0, displayIndex).map((item) => (
             <NewItem
               item={item}
+              author={item}
               style={{
                 display: "block",
                 backgroundSize: "cover",
