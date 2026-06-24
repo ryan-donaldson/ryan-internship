@@ -15,7 +15,7 @@ function App() {
   }, []);
 
   return (
-    <Router>
+    <Router basename="/ryan-internship">
       <Nav />
       <Routes>
         <Route path="/" element={<Home />} />
