@@ -8,11 +8,9 @@ const AuthorItems = () => {
   const [authorItems, setAuthorItems] = useState([]);
   const [author, setAuthor] = useState([]);
   const [loading, setLoading] = useState(true);
-  
+  const { authorId } = useParams();
 
   useEffect(() => {
-    const { authorId } = useParams();
-
     async function getAuthorItems() {
       const { data } = await axios.get(
         `https://us-central1-nft-cloud-functions.cloudfunctions.net/authors?author=${authorId}`,

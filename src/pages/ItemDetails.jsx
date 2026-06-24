@@ -7,11 +7,9 @@ import Skeleton from "../components/UI/Skeleton";
 const ItemDetails = () => {
   const [details, setDetails] = useState([]);
   const [loading, setLoading] = useState(true);
-  
+  const { nftId } = useParams();
 
   useEffect(() => {
-    const { nftId } = useParams();
-
     async function getDetails() {
       const { data } = await axios.get(
         `https://us-central1-nft-cloud-functions.cloudfunctions.net/itemDetails?nftId=${nftId}`,

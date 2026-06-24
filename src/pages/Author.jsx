@@ -8,12 +8,10 @@ import Skeleton from "../components/UI/Skeleton";
 const Author = () => {
   const [author, setAuthor] = useState([]);
   const [loading, setLoading] = useState(true);
-
+  const { authorId } = useParams();
   const [following, setFollowing] = useState(false);
 
   useEffect(() => {
-    const { authorId } = useParams();
-
     async function getAuthor() {
       const { data } = await axios.get(
         `https://us-central1-nft-cloud-functions.cloudfunctions.net/authors?author=${authorId}`,
