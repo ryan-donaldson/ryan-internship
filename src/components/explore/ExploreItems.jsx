@@ -51,7 +51,7 @@ const ExploreItems = () => {
       </div>
       {loading
         ? new Array(8).fill(0).map((_, i) => (
-            <div className="d-item col-lg-3 col-md-6 col-sm-6 col-xs-12" 
+            <div data-aos="fade-in" className="d-item col-lg-3 col-md-6 col-sm-6 col-xs-12" 
             style={{ backgroundSize: "cover", display: "block" }} key={i}>
               <div className="nft__item">
                 <div className="author_list_pp">
