@@ -25,7 +25,7 @@ const Author = () => {
       setLoading(false);
     }
     load();
-  }, []);
+  }, [authorId]);
 
   function follow() {
     if (!following) {

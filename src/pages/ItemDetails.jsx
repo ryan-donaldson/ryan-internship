@@ -24,7 +24,7 @@ const ItemDetails = () => {
       setLoading(false);
     }
     load();
-  }, []);
+  }, [nftId]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
