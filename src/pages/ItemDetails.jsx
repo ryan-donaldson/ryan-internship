@@ -9,16 +9,15 @@ const ItemDetails = () => {
   const [loading, setLoading] = useState(true);
   const { nftId } = useParams();
 
-  async function getDetails() {
-    const { data } = await axios.get(
-      `https://us-central1-nft-cloud-functions.cloudfunctions.net/itemDetails?nftId=${nftId}`,
-    );
-    setDetails(data);
-    console.log(nftId);
-    return data;
-  }
-
   useEffect(() => {
+    async function getDetails() {
+      const { data } = await axios.get(
+        `https://us-central1-nft-cloud-functions.cloudfunctions.net/itemDetails?nftId=${nftId}`,
+      );
+      setDetails(data);
+      return data;
+    }
+
     async function load() {
       const results = await getDetails();
       setDetails(results);
@@ -41,7 +40,9 @@ const ItemDetails = () => {
               {loading ? (
                 <>
                   <div className="col-md-6 text-center">
-                    <Skeleton width="500px" height="500px"
+                    <Skeleton
+                      width="500px"
+                      height="500px"
                       src=""
                       className="img-fluid img-rounded mb-sm-30 nft-image"
                       alt=""
@@ -49,28 +50,30 @@ const ItemDetails = () => {
                   </div>
                   <div className="col-md-6">
                     <div className="item_info">
-                      <Skeleton width="500px" height="50px"/>
+                      <Skeleton width="500px" height="50px" />
 
                       <div className="item_info_counts">
                         <div className="item_info_views">
                           <i className="fa fa-eye"></i>
-                          <Skeleton width="20px" height="10px"/>
+                          <Skeleton width="20px" height="10px" />
                         </div>
                         <div className="item_info_like">
                           <i className="fa fa-heart"></i>
-                          <Skeleton width="20px" height="10px"/>
+                          <Skeleton width="20px" height="10px" />
                         </div>
                       </div>
                       <p>
-                        <Skeleton width="600px" height="50px"/>
+                        <Skeleton width="600px" height="50px" />
                       </p>
                       <div className="d-flex flex-row">
                         <div className="mr40">
-                          <Skeleton width="50px"/>
+                          <Skeleton width="50px" />
                           <div className="item_author">
                             <div className="author_list_pp">
                               <Link to={`/author/${details.ownerId}`}>
-                                <Skeleton width="50px" height="50px"
+                                <Skeleton
+                                  width="50px"
+                                  height="50px"
                                   className="lazy"
                                   src={details.ownerImage}
                                   alt=""
@@ -80,7 +83,7 @@ const ItemDetails = () => {
                             </div>
                             <div className="author_list_info">
                               <Link to={`/author/${details.ownerId}`}>
-                                <Skeleton width="100px"/>
+                                <Skeleton width="100px" />
                               </Link>
                             </div>
                           </div>
@@ -89,11 +92,15 @@ const ItemDetails = () => {
                       </div>
                       <div className="de_tab tab_simple">
                         <div className="de_tab_content">
-                          <h6><Skeleton width="50px"/></h6>
+                          <h6>
+                            <Skeleton width="50px" />
+                          </h6>
                           <div className="item_author">
                             <div className="author_list_pp">
                               <Link to={`/author/${details.creatorId}`}>
-                                <Skeleton width="50px" height="50px"
+                                <Skeleton
+                                  width="50px"
+                                  height="50px"
                                   className="lazy"
                                   src={details.creatorImage}
                                   alt=""
@@ -103,16 +110,25 @@ const ItemDetails = () => {
                             </div>
                             <div className="author_list_info">
                               <Link to={`/author/${details.creatorId}`}>
-                                <Skeleton width="100px"/>
+                                <Skeleton width="100px" />
                               </Link>
                             </div>
                           </div>
                         </div>
                         <div className="spacer-40"></div>
-                        <h6><Skeleton width="50px"/></h6>
+                        <h6>
+                          <Skeleton width="50px" />
+                        </h6>
                         <div className="nft-item-price">
-                          <Skeleton width="25px" height="25px" src={EthImage} alt="" />
-                          <span><Skeleton width="75px" height="50px" /></span>
+                          <Skeleton
+                            width="25px"
+                            height="25px"
+                            src={EthImage}
+                            alt=""
+                          />
+                          <span>
+                            <Skeleton width="75px" height="50px" />
+                          </span>
                         </div>
                       </div>
                     </div>

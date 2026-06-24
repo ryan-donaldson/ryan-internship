@@ -11,14 +11,14 @@ const Author = () => {
   const { authorId } = useParams();
   const [following, setFollowing] = useState(false);
 
-  async function getAuthor() {
-    const { data } = await axios.get(
-      `https://us-central1-nft-cloud-functions.cloudfunctions.net/authors?author=${authorId}`,
-    );
-    return data;
-  }
-
   useEffect(() => {
+    async function getAuthor() {
+      const { data } = await axios.get(
+        `https://us-central1-nft-cloud-functions.cloudfunctions.net/authors?author=${authorId}`,
+      );
+      return data;
+    }
+
     async function load() {
       const results = await getAuthor();
       setAuthor(results);
@@ -59,15 +59,15 @@ const Author = () => {
                   <i className="fa fa-check"></i>
                   <div className="profile_name">
                     <h4>
-                      <Skeleton width="200px" height="50px"/>
+                      <Skeleton width="200px" height="50px" />
                       <span className="profile_username">
-                        <Skeleton width="110px" height="20px"/>
+                        <Skeleton width="110px" height="20px" />
                       </span>
                       <span id="wallet" className="profile_wallet">
-                        <Skeleton width="220px" height="30px"/>
+                        <Skeleton width="220px" height="30px" />
                       </span>
                       <button id="btn_copy" title="Copy Text">
-                        <Skeleton width="45px" height="45px"/>
+                        <Skeleton width="45px" height="45px" />
                       </button>
                     </h4>
                   </div>
@@ -76,10 +76,10 @@ const Author = () => {
               <div className="profile_follow de-flex">
                 <div className="de-flex-col">
                   <div className="profile_follower">
-                    <Skeleton width="70px" height="30px"/>
+                    <Skeleton width="70px" height="30px" />
                   </div>
                   <Link to="" onClick={follow} className="btn-main">
-                    <Skeleton width="50px" height="30px"/>
+                    <Skeleton width="50px" height="30px" />
                   </Link>
                 </div>
               </div>

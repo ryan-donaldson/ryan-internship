@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import axios from "axios";
 import ReactOwlCarousel from "react-owl-carousel";
 import Skeleton from "../UI/Skeleton";
-import Countdown from "../UI/Countdown";
 import NewItem from "./NewItem";
 
 const NewItems = () => {

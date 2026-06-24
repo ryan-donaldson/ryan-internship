@@ -9,16 +9,16 @@ const ExploreItems = () => {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const [displayIndex, setDisplayIndex] = useState(8);
-  const [value, setValue] = useState("")
-
-  async function getItems() {
-    const { data } = await axios.get(
-      `https://us-central1-nft-cloud-functions.cloudfunctions.net/explore?filter=${value}`,
-    );
-    return data;
-  }
+  const [value, setValue] = useState("");
 
   useEffect(() => {
+    async function getItems() {
+      const { data } = await axios.get(
+        `https://us-central1-nft-cloud-functions.cloudfunctions.net/explore?filter=${value}`,
+      );
+      return data;
+    }
+
     async function load() {
       const results = await getItems();
       setItems(results);
@@ -29,7 +29,7 @@ const ExploreItems = () => {
 
   useEffect(() => {
     setDisplayIndex(8);
-  }, [value])
+  }, [value]);
 
   function loadMore() {
     setDisplayIndex((prev) => prev + 4);
@@ -42,7 +42,11 @@ const ExploreItems = () => {
   return (
     <>
       <div>
-        <select id="filter-items" onChange={(e) => filterItems(e.target.value)} defaultValue="">
+        <select
+          id="filter-items"
+          onChange={(e) => filterItems(e.target.value)}
+          defaultValue=""
+        >
           <option value="">Default</option>
           <option value="price_low_to_high">Price, Low to High</option>
           <option value="price_high_to_low">Price, High to Low</option>
@@ -51,8 +55,12 @@ const ExploreItems = () => {
       </div>
       {loading
         ? new Array(8).fill(0).map((_, i) => (
-            <div data-aos="fade-in" className="d-item col-lg-3 col-md-6 col-sm-6 col-xs-12" 
-            style={{ backgroundSize: "cover", display: "block" }} key={i}>
+            <div
+              data-aos="fade-in"
+              className="d-item col-lg-3 col-md-6 col-sm-6 col-xs-12"
+              style={{ backgroundSize: "cover", display: "block" }}
+              key={i}
+            >
               <div className="nft__item">
                 <div className="author_list_pp">
                   <Skeleton width="50px" height="50px" borderRadius="50%" />

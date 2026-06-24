@@ -28,13 +28,13 @@ function NewItem({ item, author, style }) {
               <button>Buy Now</button>
               <div className="nft__item_share">
                 <h4>Share</h4>
-                <a href="" target="_blank" rel="noreferrer">
+                <a href="facebook.com" target="_blank" rel="noreferrer">
                   <i className="fa fa-facebook fa-lg"></i>
                 </a>
-                <a href="" target="_blank" rel="noreferrer">
+                <a href="twitter.com" target="_blank" rel="noreferrer">
                   <i className="fa fa-twitter fa-lg"></i>
                 </a>
-                <a href="">
+                <a href="email.com">
                   <i className="fa fa-envelope fa-lg"></i>
                 </a>
               </div>
