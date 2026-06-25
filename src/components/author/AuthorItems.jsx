@@ -26,6 +26,7 @@ const AuthorItems = () => {
     }
     load();
   }, [authorId]);
+  
 
   return (
     <div className="de_tab_content">
